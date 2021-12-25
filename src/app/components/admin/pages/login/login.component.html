@@ -1,0 +1,8 @@
+<div *ngIf="errLogin">
+  {{ errLogin }}
+</div>
+<form *ngIf="formLogin" [formGroup]="formLogin" (ngSubmit)="login()">
+  Email: <input type="text" formControlName="email">
+  Password: <input type="text" formControlName="password">
+  <button>Login</button>
+</form>

@@ -1,1 +1,30 @@
-<p>user-add works!</p>
+<form *ngIf="formAddUser" [formGroup]="formAddUser" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" formControlName="email"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" formControlName="password"></td>
+    </tr>
+    <tr>
+      <td>Role</td>
+      <td>
+        <ng-container *ngFor="let role of roles">
+          <input (change)="choseRoleUser($event)" type="checkbox" [value]="role.id">
+          {{ role.name }}
+        </ng-container>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit">Add</button></td>
+    </tr>
+  </table>
+</form>
